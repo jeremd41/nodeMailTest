@@ -1,2 +1,0 @@
-# nodeMailTest
-Created with CodeSandbox
