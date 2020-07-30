@@ -7,7 +7,7 @@ router.get("/", (res, req) => {
     service: "gmail",
     auth: {
       user: "webizy.france@gmail.com",
-      pass: "Mimimix912003711041700"
+      pass: "*****"
     }
   });
 
