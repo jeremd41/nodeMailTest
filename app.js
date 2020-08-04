@@ -21,7 +21,7 @@ const contactAddress = "webizy.france@gmail.com"
 const mailer = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.GMAIL_ADRESS,
+    user: process.env.GMAIL_ADDRESS,
     pass: process.env.GMAIL_PASSWORD,
   },
 })
@@ -31,7 +31,12 @@ app.post("/contact", function (req, res) {
       from: req.body.from,
       to: [contactAddress],
       subject: req.body.subject || "[No subject]",
-      html: req.body.message || "[No message]",
+      html: `<h3>${req.body.from}</h3>
+            <p>${req.body.message}</p>
+            <br/>
+            <br/>
+            <p>Email issue du formulaire de contact de idéeCode.fr</p>
+            ` || "[No message]",
     },
     function (err, info) {
       if (err) return res.status(500).send(err)
