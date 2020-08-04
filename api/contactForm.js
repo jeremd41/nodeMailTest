@@ -22,7 +22,7 @@ const mailer = nodemailer.createTransport({
     pass: process.env.GMAIL_PASSWORD,
   },
 })
-app.post("/contact", function (req, res) {
+module.exports=app.post("/contact", function (req, res) {
   mailer.sendMail(
     {
       from: req.body.from,
